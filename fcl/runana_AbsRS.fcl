@@ -1,0 +1,55 @@
+#include "services_dune.fcl"
+#include "tools_dune.fcl"
+
+
+process_name: TriggerAna
+
+source:
+{
+  module_type: RootInput
+  maxEvents:   -1
+}
+
+services:
+{
+ @table::dunefd_services
+ TFileService: {fileName : "trigger_ana_tree.root"}
+}
+
+physics:
+{
+  analyzers:
+  {
+  triggerana: {
+   module_type: TPGAna
+   tp_tag: "tpmakerTPC35AbsRS"  # TP producer label 
+   gen_tag: "generator"
+   SaveMCInfo: true
+   SaveTPInfo: true
+   V_window_end_offset: 0
+   U_window_end_offset: 0
+   X_window_end_offset: 0
+   }
+}
+  path0:     [triggerana]
+  end_paths: [path0]
+}
+
+services.Geometry: {
+    GDML: "dune10kt_v6_refactored_1x2x6.gdml"
+    Name: "dune10kt_v6_1x2x6"
+    ROOT: "dune10kt_v6_refactored_1x2x6.gdml"
+    SurfaceY: 147828
+    SortingParameters: {
+         tool_type: "GeoObjectSorterAPA"
+    }
+}
+
+services.WireReadout: {
+      ChannelsPerOpDet: 1
+      service_provider: "DUNEWireReadout"
+      service_type: "WireReadout"
+}
+
+
+services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
