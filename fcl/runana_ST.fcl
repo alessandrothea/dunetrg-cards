@@ -13,7 +13,7 @@ source:
 services:
 {
  @table::dunefd_services
- TFileService: {fileName : "trigger_ana_tree.root"}
+ TFileService: {fileName : "tpg_eminus_snbbkg_st.root"}
 }
 
 physics:
@@ -54,6 +54,5 @@ services.WireReadout: {
 
 services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
 
-outputs:
-{
+outputs: {
 }

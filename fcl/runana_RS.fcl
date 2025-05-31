@@ -13,7 +13,7 @@ source:
 services:
 {
  @table::dunefd_services
- TFileService: {fileName : "trigger_ana_tree.root"}
+ TFileService: {fileName : "tpg_eminus_snbbkg_rs.root"}
 }
 
 physics:
@@ -22,7 +22,7 @@ physics:
   {
   triggerana: {
    module_type: TPGAna
-   tp_tag: "tpmakerTPC35RS"  # TP producer label 
+   tp_tag: "tpmakerTPCRunningSum"  # TP producer label 
    gen_tag: "generator"
    SaveMCInfo: true
    SaveTPInfo: true
@@ -53,3 +53,7 @@ services.WireReadout: {
 
 
 services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
+
+
+outputs: {
+}
