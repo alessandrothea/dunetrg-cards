@@ -8,7 +8,8 @@ services:
   # TFileService: { fileName: "deleteme.root" }
   RandomNumberGenerator: {} #ART native random number generator
   WireReadout:          @local::dune_wire_readout
-  Geometry:             @local::dunevd10kt_1x8x6_3view_geo
+  Geometry:             @local::dunevd10kt_1x8x6_3view_30deg_geo
+  AuxDetGeometry:       @local::dunevd10kt_1x8x6_3view_30deg_auxdet_geo
   message:              @local::dune_message_services_prod
   IFDH: {}
 }
@@ -57,3 +58,5 @@ outputs:
    outputCommands: ["keep *_*_*_*", "drop raw::RawDigit*_*_*_*"] 
  }
 }
+
+

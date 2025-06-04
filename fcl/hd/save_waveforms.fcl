@@ -13,9 +13,7 @@ source:
 services:
 {
  @table::dunefd_services
- TFileService: {fileName : "trigger_ana_tree.root"}
-  Geometry:             @local::dunevd10kt_1x8x6_3view_30deg_geo
-  AuxDetGeometry:       @local::dunevd10kt_1x8x6_3view_30deg_auxdet_geo
+ TFileService: {fileName : "trigger_ana_tree_waves.root"}
 }
 
 physics:
@@ -24,10 +22,12 @@ physics:
   {
   triggerana: {
    module_type: TPGAna
+   rawdigit_tag: "tpcrawdecoder:daq" #input to TPG-> Raw Digits
    tp_tag: "tpmakerTPC"  # TP producer label 
    gen_tag: "generator"
    SaveMCInfo: true
-   SaveTPInfo: true
+   SaveRawDigits: true
+   SaveTPInfo: false
    SaveNeutrino: true
    V_window_end_offset: 9
    U_window_end_offset: 13
@@ -38,22 +38,16 @@ physics:
   end_paths: [path0]
 }
 
-# services.Geometry: {
-#     GDML: "dunevd10kt_3view_30deg_v5_refactored_1x8x6ref.gdml"
-#     SurfaceY: 147828
-#     SortingParameters: {
-#          tool_type: "GeoObjectSorterAPA"
-#     }
-# }
 
-# services.AuxDetGeometry: {
-#   GDML: "dunevd10kt_3view_30deg_v5_refactored_1x8x6ref.gdml"
-#   Name: "dune10kt_v6"
-#   SortingParameters: {
-#       tool_type: "AuxDetGeoObjectSorterStandard"
-#   }
-# }
-
+services.Geometry: {
+    GDML: "dune10kt_v6_refactored_1x2x6.gdml"
+    Name: "dune10kt_v6_1x2x6"
+    ROOT: "dune10kt_v6_refactored_1x2x6.gdml"
+    SurfaceY: 147828
+    SortingParameters: {
+         tool_type: "GeoObjectSorterAPA"
+    }
+}
 
 services.WireReadout: {
       ChannelsPerOpDet: 1
