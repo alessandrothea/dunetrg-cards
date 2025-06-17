@@ -60,7 +60,6 @@ physics:
         threshold_tpg_plane2: 110  #collection plane threshold
       }
     }
-
   }
 
  stream1:  [ out1 ]
