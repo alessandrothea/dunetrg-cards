@@ -1,0 +1,51 @@
+#include "services_dune.fcl"
+#include "tools_dune.fcl"
+
+
+process_name: TriggerAna
+
+source:
+{
+  module_type: RootInput
+  maxEvents:   -1
+}
+
+services:
+{
+ @table::dunefd_services
+ TFileService: {fileName : "tpg_eminus_vd_rs.root"}
+  Geometry:             @local::dunevd10kt_1x8x6_3view_30deg_geo
+  AuxDetGeometry:       @local::dunevd10kt_1x8x6_3view_30deg_auxdet_geo
+}
+
+physics:
+{
+  analyzers:
+  {
+  triggerana: {
+   module_type: TPValTreeWriter
+   tp_tag: "tpmakerTPCRunningSum"  # TP producer label 
+   gen_tag: "generator"
+   SaveMCInfo: true
+   SaveTPInfo: true
+   SaveNeutrino: false
+   V_window_end_offset: 9
+   U_window_end_offset: 13
+   X_window_end_offset: 0
+   }
+}
+  path0:     [triggerana]
+  end_paths: [path0]
+}
+
+services.WireReadout: {
+      ChannelsPerOpDet: 1
+      service_provider: "DUNEWireReadout"
+      service_type: "WireReadout"
+}
+
+
+services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
+
+outputs: {
+}
