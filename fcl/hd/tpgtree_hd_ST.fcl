@@ -21,7 +21,7 @@ physics:
   analyzers:
   {
   triggerana: {
-   module_type: TPGAna
+   module_type: TPValTreeWriter
    tp_tag: "tpmakerTPCSimpleThreshold"  # TP producer label 
    gen_tag: "generator"
    SaveMCInfo: true

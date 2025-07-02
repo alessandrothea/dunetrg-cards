@@ -13,7 +13,7 @@ source:
 services:
 {
  @table::dunefd_services
- TFileService: {fileName : "tpg_eminus_snbbkg_ars.root"}
+ TFileService: {fileName : "tpg_eminus_snbbkg_rs.root"}
 }
 
 physics:
@@ -21,13 +21,13 @@ physics:
   analyzers:
   {
   triggerana: {
-   module_type: TPGAna
-   tp_tag: "tpmakerTPCAbsoluteRunningSum"  # TP producer label 
+   module_type: TPValTreeWriter
+   tp_tag: "tpmakerTPCRunningSum"  # TP producer label 
    gen_tag: "generator"
    SaveMCInfo: true
    SaveTPInfo: true
-   V_window_end_offset: 0
-   U_window_end_offset: 0
+   V_window_end_offset: 9
+   U_window_end_offset: 13
    X_window_end_offset: 0
    }
 }
@@ -53,3 +53,7 @@ services.WireReadout: {
 
 
 services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
+
+
+outputs: {
+}

@@ -13,9 +13,7 @@ source:
 services:
 {
  @table::dunefd_services
- TFileService: {fileName : "tpg_eminus_vd_st.root"}
-  Geometry:             @local::dunevd10kt_1x8x6_3view_30deg_geo
-  AuxDetGeometry:       @local::dunevd10kt_1x8x6_3view_30deg_auxdet_geo
+ TFileService: {fileName : "tpg_eminus_snbbkg_ars.root"}
 }
 
 physics:
@@ -24,18 +22,27 @@ physics:
   {
   triggerana: {
    module_type: TPValTreeWriter
-   tp_tag: "tpmakerTPCSimpleThreshold"  # TP producer label 
+   tp_tag: "tpmakerTPCAbsoluteRunningSum"  # TP producer label 
    gen_tag: "generator"
    SaveMCInfo: true
    SaveTPInfo: true
-   SaveNeutrino: false
-   V_window_end_offset: 9
-   U_window_end_offset: 13
+   V_window_end_offset: 0
+   U_window_end_offset: 0
    X_window_end_offset: 0
    }
 }
   path0:     [triggerana]
   end_paths: [path0]
+}
+
+services.Geometry: {
+    GDML: "dune10kt_v6_refactored_1x2x6.gdml"
+    Name: "dune10kt_v6_1x2x6"
+    ROOT: "dune10kt_v6_refactored_1x2x6.gdml"
+    SurfaceY: 147828
+    SortingParameters: {
+         tool_type: "GeoObjectSorterAPA"
+    }
 }
 
 services.WireReadout: {
@@ -46,6 +53,3 @@ services.WireReadout: {
 
 
 services.BackTrackerService.BackTracker.SimChannelModuleLabel: "tpcrawdecoder:simpleSC"
-
-outputs: {
-}

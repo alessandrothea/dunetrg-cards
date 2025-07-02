@@ -1,0 +1,10 @@
+---
+label: 'mu_minus_vd_gen'
+larsoft_runner: '${HOME}/work/dune/trigsim_mark01/lar_wrap.sh'
+config_fcl: '${HOME}/work/dune/dune-trg-sandbox/fcl/vd/trig_studies_muminus_fixed_vd.fcl'
+n_events : 10000
+eos_output_folder : '/eos/home-t/thea/dune_trigger/mu_minus_vd/gen'
+
+
+
+
