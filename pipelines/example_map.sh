@@ -1,24 +1,25 @@
 #!/usr/bin/bash
 
+# Configuration
 
-sample="eminus"
+sample="bkg_vd"
 
 declare -A stages_configs
 
-stages_configs["gen"]="prodbackground_radiological_decay0_dunevd10kt_1x8x14.fcl"
-stages_configs["g4"]="${HOME}/work/dune/dune-trg-sandbox/fcl/vd/standard_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
-stages_configs["detsim"]="${HOME}/work/dune/dune-trg-sandbox/fcl/vd/detsim_dunevd10kt_1x8x14_3view_30deg_notpcsigproc.fcl"
+stages_configs["gen"]="${HOME}/app/dune-trg-sandbox/fcl/vd/prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched.fcl"
+stages_configs["g4"]="${HOME}/app/dune-trg-sandbox/fcl/vd/standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
+stages_configs["detsim"]="${HOME}/app/dune-trg-sandbox/fcl/vd/detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
+stages_configs["tpg"]="${HOME}/app/dune-trg-sandbox/fcl/vd/tpgtree_vd_ST_with_ides.fcl"
 
-stages=("gen" "g4" "detsim")
+stages=("gen" "g4" "detsim" "tpg")
 n_ev=3
-
-
 
 #-------------------------------------
 # Don't touch beyond this point
 
 base_dir=$(pwd)
 for i in "${!stages[@]}"; do
+    cd ${base_dir}
     stage=${stages[$i]}
     echo ">>> Stage: '$stage' <<< "
 
@@ -35,6 +36,8 @@ for i in "${!stages[@]}"; do
     out_dir=${base_dir}/${stage} 
     out_file=${out_dir}/${stage}_${sample}.root
 
+    mkdir -p ${out_dir}    
+    cd ${out_dir}
 
     cmd_line="lar -c ${cfg_file} ${src_file_opt} -o ${out_file} -n ${k}"
     echo -e "\nExecuting '${cmd_line}'\n"
