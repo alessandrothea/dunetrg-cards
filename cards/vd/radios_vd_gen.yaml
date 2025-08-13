@@ -1,0 +1,10 @@
+---
+label: 'radios_vd_gen'
+larsoft_runner: '${HOME}/work/dune/trigsim_mark01/lar_wrap.sh'
+config_fcl: 'prodbackground_radiological_decay0_dunevd10kt_1x8x6.fcl'
+n_events : 10000
+eos_output_folder : '/eos/home-t/thea/dune_trigger/radios_vd/gen'
+
+
+
+

@@ -28,12 +28,11 @@ physics:
    gen_tag: "generator"
    SaveMCInfo: true
    SaveTPInfo: true
-   SaveIDEs: false
    SaveNeutrino: false
-   U_window_offset: 8
-   V_window_offset: 1
-   X_window_offset: -7
-   }
+   U_window_offset: 13
+   V_window_offset: 9
+   X_window_offset: 0
+  }
 }
   path0:     [triggerana]
   end_paths: [path0]
