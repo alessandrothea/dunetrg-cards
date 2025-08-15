@@ -2,18 +2,19 @@
 
 # Configuration
 
-sample="eminus"
+sample="vd_radiols"
 
 declare -A stages_configs
 
-stages_configs["gen"]="${HOME}/app/dune-trg-sandbox/fcl/vd/prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched.fcl"
-stages_configs["g4"]="${HOME}/app/dune-trg-sandbox/fcl/vd/standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
-stages_configs["detsim"]="${HOME}/app/dune-trg-sandbox/fcl/vd/detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
-stages_configs["tpg"]="${HOME}/app/dune-trg-sandbox/fcl/vd/trig_studies_tpg_st_rs_ars.fcl"
+stages_configs["gen"]="prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched.fcl"
+stages_configs["g4"]="standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
+stages_configs["detsim"]="detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
+stages_configs["tpg"]="trig_studies_tpg_st_rs_ars.fcl"
+stages_configs["tptree"]="tpgtree_vd_ST_with_ides_nomc.fcl"
 
-stages=("gen" "g4" "detsim" "tpg")
+stages=("gen" "g4" "detsim" "tpg" "tptree")
 n_ev=3
-skip_stages=0
+skip_stages=4
 
 #-------------------------------------
 # Don't touch beyond this point
