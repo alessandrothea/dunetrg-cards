@@ -1,0 +1,89 @@
+#!/bin/bash
+set -euo pipefail
+
+# --- Check arguments ---
+if [[ $# -lt 1 ]]; then
+    echo "Usage: $0 <config.yaml>"
+    exit 1
+fi
+
+config="$1"
+
+if [[ ! -f "$config" ]]; then
+    echo "Error: file '$config' not found!"
+    exit 1
+fi
+
+# --- Check yq availability ---
+if ! command -v yq &>/dev/null; then
+    echo "Error: 'yq' command not found."
+    echo
+    echo "You can install it locally with:"
+    echo "  mkdir -p ~/.local/bin"
+    echo "  wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O ~/.local/bin/yq"
+    echo "  chmod +x ~/.local/bin/yq"
+    echo
+    echo "Then add ~/.local/bin to your PATH if not already:"
+    echo '  export PATH="$HOME/.local/bin:$PATH"'
+    exit 1
+fi
+
+# --- Parse standalone variables (with defaults if missing) ---
+pipeline_name=$(yq -r '.pipeline_name // ""' "$config")
+lar_area=$(yq -r '.lar_area // ""' "$config")
+n_ev=$(yq -r '.n_ev // 0' "$config")
+n_skip=$(yq -r '.n_skip // 0' "$config")
+skip_stages=$(yq -r '.skip_stages // 0' "$config")
+
+# --- input_files as optional array, robust across yq variants ---
+declare -a input_files=()
+# Get the type of .input_files (mikefarah: "!!seq"/"!!str"/"null"; jq-yq: "array"/"string"/"null")
+input_type=$(yq -r '.input_files | (type // "null")' "$config" 2>/dev/null || echo "null")
+
+case "$input_type" in
+  "!!seq"|"array")
+      mapfile -t input_files < <(yq -r '.input_files[]' "$config")
+      ;;
+  "!!str"|"string")
+      val=$(yq -r '.input_files' "$config")
+      [[ "$val" != "null" && -n "$val" ]] && input_files=("$val")
+      ;;
+  "null"|*)
+      # leave as empty array
+      ;;
+esac
+
+echo "Standalone variables:"
+echo "  pipeline_name = $pipeline_name"
+echo "  lar_area      = $lar_area"
+if ((${#input_files[@]} > 0)); then
+    echo "  input_files   = ${input_files[*]}"
+else
+    echo "  input_files   = (none)"
+fi
+echo "  n_ev          = $n_ev"
+echo "  n_skip        = $n_skip"
+echo "  skip_stages   = $skip_stages"
+echo
+
+# --- Stages into associative array (preserve YAML order for printing) ---
+declare -A stages
+declare -a stage_keys=()
+while IFS=$'\t' read -r key val; do
+    stages["$key"]="$val"
+    stage_keys+=("$key")
+done < <(yq -r '.stages | to_entries[] | "\(.key)\t\(.value)"' "$config")
+
+echo "Stages map:"
+for key in "${stage_keys[@]}"; do
+    echo "  $key → ${stages[$key]}"
+done
+echo
+
+# --- Sequence into indexed array ---
+mapfile -t sequence < <(yq -r '.sequence[]' "$config")
+
+echo "Sequence (${#sequence[@]} steps):"
+for s in "${sequence[@]}"; do
+    echo "  -> $s"
+done

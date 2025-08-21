@@ -1,8 +1,10 @@
 
 pipeline_name: "vd_radiols"
 lar_area : '/afs/cern.ch/work/t/thea/dune/trigsim_mark02_v10_09_00'
+# input_files : 'aaa.root'
 n_ev: 3
-skip_stages: 4
+n_skip : 0
+# skip_stages: 1
 
 stages:
   gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched.fcl"
