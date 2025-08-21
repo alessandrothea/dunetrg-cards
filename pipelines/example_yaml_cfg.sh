@@ -2,8 +2,46 @@
 set -euo pipefail
 # set -x
 # --- Check arguments ---
+
+usage() {
+    cat <<'USAGE'
+Usage: cfg_parser.sh [options] <config.yaml>
+
+Options:
+  -n, --dry-run   Do not execute anything; only print what would be done
+  -h, --help      Show this help
+USAGE
+}
+
+# ----------------------------
+# Parse CLI with getopt
+# ----------------------------
+TEMP=$(getopt -o nh --long dry-run,help -n 'cfg_parser.sh' -- "$@")
+if [[ $? -ne 0 ]]; then
+    usage
+    exit 1
+fi
+eval set -- "$TEMP"
+
+DRY_RUN=0
+
+while true; do
+    case "$1" in
+        -n|--dry-run)
+            DRY_RUN=1; shift ;;
+        -h|--help)
+            usage; exit 0 ;;
+        --)
+            shift; break ;;
+        *)
+            echo "Internal error: $1"; exit 1 ;;
+    esac
+done
+
 if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 <config.yaml>"
+    echo "Error: missing <config.yaml>"
+    echo
+    usage
     exit 1
 fi
 
@@ -97,6 +135,8 @@ done
 
 base_dir=$(pwd)
 for i in "${!sequence[@]}"; do
+    echo -e "\n"
+
     cd ${base_dir}
     stage_key=${sequence[$i]}
     echo ">>> Stage: '$stage_key' <<< "
@@ -135,7 +175,14 @@ for i in "${!sequence[@]}"; do
     cd ${out_dir}
 
     cmd_line="lar -c ${cfg_file} ${src_file_opt} -o ${out_file} -n ${k} ${n_skip_opt}"
-    echo -e "\nExecuting '${cmd_line}'\n"
+    echo -e "Command '${cmd_line}'"
+
+    if ((${DRY_RUN} == 1)); then
+        continue
+    fi
+
+    echo "Executing command!"
+
     #${cmd_line}
 
 done
