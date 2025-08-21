@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-
-HERE=$(cd $(dirname $(readlink -f ${BASH_SOURCE})) && pwd)
-
-source ${HERE}/.venv/bin/activate
-
-env | grep -i venv
-${HERE}/src/main.py $@
