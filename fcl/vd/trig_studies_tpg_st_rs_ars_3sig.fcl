@@ -32,40 +32,39 @@ physics:
      tpalg: {
       tool_type: TPAlgTPCSimpleThreshold #Use Simple Threshold TPG alg.
       verbosity: 0
-      threshold_tpg_plane0: 38 # induction U
-      threshold_tpg_plane1: 38 # induction V
-      threshold_tpg_plane2: 44 # collection plane X
+      threshold_tpg_plane0: 23 # induction U
+      threshold_tpg_plane1: 23 # induction V
+      threshold_tpg_plane2: 26 # collection plane X
      }
     }
-    # tpmakerTPCRunningSum:
-    # {
-    #   module_type: TriggerPrimitiveMakerTPC
-    #   rawdigit_tag: "tpcrawdecoder:daq" # input to TPG-> Raw Digits
-    #   tpalg: {
-    #     tool_type: TPAlgTPCRunningSum # Use Running Sum TPG alg.
-    #     verbosity: 0
-    #     threshold_tpg_plane0: 80 #induction U
-    #     threshold_tpg_plane1: 80 #induction V
-    #     threshold_tpg_plane2: 70  #collection plane threshold
-    #   }
-    # }
-    # tpmakerTPCAbsoluteRunningSum:
-    # {
-    #   module_type: TriggerPrimitiveMakerTPC
-    #   rawdigit_tag: "tpcrawdecoder:daq" #input to TPG-> Raw Digits
-    #   tpalg: {
-    #     tool_type: TPAlgTPCAbsRunningSum # Use AbsRunning Sum TPG alg.
-    #     verbosity: 0
-    #     threshold_tpg_plane0: 80 #induction U
-    #     threshold_tpg_plane1: 80 #induction V
-    #     threshold_tpg_plane2: 70  #collection plane threshold
-    #   }
-    # }
+    tpmakerTPCRunningSum:
+    {
+      module_type: TriggerPrimitiveMakerTPC
+      rawdigit_tag: "tpcrawdecoder:daq" # input to TPG-> Raw Digits
+      tpalg: {
+        tool_type: TPAlgTPCRunningSum # Use Running Sum TPG alg.
+        verbosity: 0
+        threshold_tpg_plane0: 80 #induction U
+        threshold_tpg_plane1: 80 #induction V
+        threshold_tpg_plane2: 70  #collection plane threshold
+      }
+    }
+    tpmakerTPCAbsoluteRunningSum:
+    {
+      module_type: TriggerPrimitiveMakerTPC
+      rawdigit_tag: "tpcrawdecoder:daq" #input to TPG-> Raw Digits
+      tpalg: {
+        tool_type: TPAlgTPCAbsRunningSum # Use AbsRunning Sum TPG alg.
+        verbosity: 0
+        threshold_tpg_plane0: 80 #induction U
+        threshold_tpg_plane1: 80 #induction V
+        threshold_tpg_plane2: 70  #collection plane threshold
+      }
+    }
   }
 
  stream1:  [ out1 ]
-#  sim: [ tpmakerTPCSimpleThreshold, tpmakerTPCRunningSum, tpmakerTPCAbsoluteRunningSum ]
- sim: [ tpmakerTPCSimpleThreshold ]
+ sim: [ tpmakerTPCSimpleThreshold, tpmakerTPCRunningSum, tpmakerTPCAbsoluteRunningSum ]
  trigger_paths: [sim]
 
  end_paths: [stream1]

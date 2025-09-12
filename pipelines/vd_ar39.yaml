@@ -1,0 +1,22 @@
+
+pipeline_name: "vd_ar39"
+lar_area : '/afs/cern.ch/work/t/thea/dune/trigsim_mark02_v10_09_00'
+# input_files : 'aaa.root'
+n_ev: 100
+n_skip : 0
+skip_stages: 4
+
+stages:
+  gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched_ar39only.fcl"
+  g4 : "standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
+  detsim : "detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
+  tpg : "trig_studies_tpg_st_rs_ars.fcl"
+  tptree : "tpgtree_vd_ST_with_ides_nomc.fcl"
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim"
+  - "tpg"
+  - "tptree"
+
