@@ -1,0 +1,22 @@
+#include "triggersim_triggerana_dune10kt_1x2x6.fcl"
+
+process_name: TriggerAnaDump
+services.PhotonBackTrackerService: @erase
+
+services.TFileService.fileName : "trigtree_%ifb.root"
+
+# outputs.out1.outputCommands: [
+#     "drop *_*_*_*"
+
+#     # "keep *_*_*_*", 
+#     # "drop raw::RawDigit*_*_*_*",
+#     # "drop raw::OpDet*_*_*_*",
+#     # "drop simb::OpDet*_*_*_*",
+#     # "drop sim::OpDet*_*_*_*",
+#     # "drop sim::SimEnergyDeposits*_*_*_*"
+#     ] 
+
+physics.producers : {}
+physics.makers : []
+physics.stream1 : []
+outputs : {}
