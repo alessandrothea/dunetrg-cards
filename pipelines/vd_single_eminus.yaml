@@ -1,0 +1,22 @@
+
+pipeline_name: "vd_eminus"
+lar_area : '/home/thea/devel/dune-trigger/trigsim_mark05_v10_10_06d00'
+# input_files : 'aaa.root'
+n_ev: 100
+n_skip : 0
+skip_stages: 0
+
+stages:
+  gen : "gen_vd_1x8x6_eminus_center.fcl"
+  g4 : "standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
+  detsim : "detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
+  tpg : "trig_studies_tpg_st_rs_ars.fcl"
+  tptree : "triggerana_vd_1x8x6_simpleThr.fcl"
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim"
+  - "tpg"
+  - "tptree"
+
