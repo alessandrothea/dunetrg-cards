@@ -16,7 +16,7 @@ source.firstRun: 20000011
 physics.producers.generator.PDG: [ 13 ]          # mu-
 physics.producers.generator.PosDist: 0           # Flat position dist.
 physics.producers.generator.X0: [ 0 ]            #vary drift, fix the other two coordinates. In VD, drift is fixed to be along x --> x and y are interchanged w.r.t HD 
-physics.producers.generator.Y0: [ 0 ]            # x: [-325, 325], y: [-650, 650], z: [0, 898] --> 6.5m tall x 13.5 m wide x 9 m long 
+physics.producers.generator.Y0: [ 150 ]            # x: [-325, 325], y: [-650, 650], z: [0, 898] --> 6.5m tall x 13.5 m wide x 9 m long 
 physics.producers.generator.Z0: [ 450 ]           
 physics.producers.generator.T0: [ 1000.0 ]
 physics.producers.generator.SigmaX: [ 325 ]      # x = drift vol. 

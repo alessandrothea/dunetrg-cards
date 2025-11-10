@@ -32,9 +32,9 @@ physics:
      tpalg: {
       tool_type: TPAlgTPCSimpleThreshold #Use Simple Threshold TPG alg.
       verbosity: 0
-      threshold_tpg_plane0: 38 # induction U
-      threshold_tpg_plane1: 38 # induction V
-      threshold_tpg_plane2: 44 # collection plane X
+      threshold_tpg_plane0: 45 # induction U
+      threshold_tpg_plane1: 45 # induction V
+      threshold_tpg_plane2: 45 # collection plane X
      }
     }
     # tpmakerTPCRunningSum:
