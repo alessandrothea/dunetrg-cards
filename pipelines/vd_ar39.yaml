@@ -11,12 +11,12 @@ stages:
   g4 : "standard_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
   detsim : "detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
   tpg : "triggersim_tpg_vd_1x8x6.fcl"
-  tptree : "triggerana_vd_1x8x6_simpleThr.fcl"
+  anatree : "triggerana_vd_1x8x6_simpleThr.fcl"
 
 sequence:
   - "gen"
   - "g4"
   - "detsim"
   - "tpg"
-  - "tptree"
+  - "anatree"
 
