@@ -1,0 +1,40 @@
+
+#include "triggerana_tree.fcl"
+#include "tools_dune.fcl"
+
+process_name: TriggerTreeMaker
+
+services: {
+	@table::services_triggerana_tree
+	@table::dunefdvd_1x8x14_3view_30deg_reco_services
+}
+services.TFileService.fileName : "trigtree_%ifb.root"
+
+source:	@local::source_triggerana_tree
+outputs : {}
+
+physics : {
+  analyzers: {
+    triggerAna: @local::triggerAnaTree_dumpAll
+  }
+
+  ana:            [ triggerAna ]
+  end_paths:      [ ana ]
+}
+
+
+physics.analyzers.triggerAna.dump_tp: false
+physics.analyzers.triggerAna.dump_ta: false
+physics.analyzers.triggerAna.dump_tc: false
+physics.analyzers.triggerAna.dump_mctruths: true 
+physics.analyzers.triggerAna.dump_mcparticles: false 
+physics.analyzers.triggerAna.dump_simides: false
+physics.analyzers.triggerAna.tp_backtracking: false
+
+
+physics.producers : @erase
+physics.makers : @erase
+physics.stream1 : @erase
+# outputs : @erase
+outputs: {
+}
