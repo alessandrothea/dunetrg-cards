@@ -4,7 +4,7 @@ lar_area : '/afs/cern.ch/work/t/thea/dune/trigsim_mark02_v10_09_00'
 # input_files : 'aaa.root'
 n_ev: 100
 n_skip : 0
-skip_stages: 1
+skip_stages: 2
 keep_last_hist_file: True
 keep_last_art_file: False
 

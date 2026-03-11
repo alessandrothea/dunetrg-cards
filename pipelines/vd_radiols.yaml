@@ -6,7 +6,7 @@ n_ev: 100
 n_skip : 0
 skip_stages: 4
 keep_last_hist_file: True
-keep_last_art_file: True
+keep_last_art_file: False
 
 
 stages:
