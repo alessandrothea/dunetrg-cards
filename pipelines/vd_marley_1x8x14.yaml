@@ -1,0 +1,28 @@
+
+pipeline_name: "vd_marley_1x8x14"
+# lar_area : '/home/thea/devel/dune-trigger/trigsim_mark09_v10_20_03d00/'
+# input_files : 'aaa.root'
+n_ev: 1
+n_skip : 0
+skip_stages: 2
+keep_last_hist_file: True
+keep_last_art_file: True
+
+stages:
+  gen : "prodmarley_nue_cc_flat_dunevd10kt_1x8x14_3view_30deg.fcl"
+  g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
+
+  detsim_loop:
+    template: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_template.fcl"
+    n_iter: 112
+    delete_intermediate_products: True
+
+  detsim_pds: "detsim_dunevd10kt_1x8x14_3view_30deg_pds_only.fcl"
+
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim_loop"
+  - "detsim_pds"
+
