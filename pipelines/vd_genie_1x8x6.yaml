@@ -1,0 +1,19 @@
+
+pipeline_name: "vd_genie_1x8x6"
+n_ev: 1
+skip_events : 0
+first_stage: 2
+keep_last_hist_file: True
+keep_last_art_file: True
+
+stages:
+  gen : "prodgenie_nu_dunevd10kt_1x8x6_3view_30deg.fcl"
+  g4 : "supernova_g4_dunevd10kt_1x8x6_3view_30deg.fcl"
+  detsim : "detsim_dunevd10kt_1x8x6_3view_30deg_notpcsigproc.fcl"
+
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim"
+

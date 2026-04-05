@@ -1,0 +1,18 @@
+
+pipeline_name: "vd_muminus_v1x8x14"
+n_ev: 1
+skip_events : 0
+first_stage: 2
+keep_last_hist_file: True
+keep_last_art_file: True
+
+stages:
+  gen : "gen_vd_1x8x14_muminus_tomoz.fcl"
+  g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
+  detsim : "detsim_dunevd10kt_1x8x14_3view_30deg_notpcsigproc.fcl"
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim"
+

@@ -5,8 +5,8 @@ lar_area : '/home/thea/devel/dune-trigger/trigsim_mark07_v10_12_02d00'
 # input_files : 'aaa.root'
 # n_ev: 100
 n_ev: 1
-n_skip : 0
-skip_stages: 3
+skip_events : 0
+first_stage: 3
 
 stages:
   gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x6_patched_ar39only.fcl"

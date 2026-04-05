@@ -1,0 +1,24 @@
+#include "standard_detsim_dunevd10kt_1x8x14_3view_30deg.fcl"
+
+
+process_name: "detsim@loop_index@"
+
+physics.simulate: [ @sequence::dunefd_vertdrift_detsim_tpc_only ]
+physics.producers.tpcrawdecoder.wcls_main.structs.process_apa_index: @loop_index@
+
+
+physics.filters: {
+    hydrafilter:
+    {
+      module_type: HydraFilter
+      tpcset_id: @loop_index@
+    }
+}
+
+physics.simulate : [
+    "hydrafilter",
+    "rns",
+    "tpcrawdecoder"
+]
+
+# outputs.out1.SelectEvents: [simulate]
