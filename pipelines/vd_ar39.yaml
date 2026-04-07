@@ -3,8 +3,8 @@ pipeline_name: "vd_ar39"
 lar_area : '/home/thea/devel/dune-trigger/trigsim_mark07_v10_12_02d00'
 # lar_area : '/afs/cern.ch/work/t/thea/dune/trigsim_mark02_v10_09_00'
 # input_files : 'aaa.root'
-# n_ev: 100
-n_ev: 1
+# n_events: 100
+n_events: 1
 skip_events : 0
 first_stage: 3
 

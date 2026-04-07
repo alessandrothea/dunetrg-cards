@@ -2,7 +2,7 @@
 pipeline_name: "vd_radiols"
 lar_area : '/afs/cern.ch/work/t/thea/dune/trigsim_mark02_v10_09_00'
 # input_files : 'aaa.root'
-n_ev: 100
+n_events: 100
 skip_events : 0
 first_stage: 4
 keep_last_hist_file: True

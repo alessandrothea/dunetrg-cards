@@ -1,13 +1,14 @@
-
 pipeline_name: "vd_radiols_1x8x14"
-n_ev: 10
+n_events: 5
 skip_events : 0
+first_stage: 0
+
 keep_last_hist_file: True
 keep_last_art_file: False
 
 stages:
   gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x14_3view_30deg.fcl"
-  g4 : "supernova_g4stage1_dunevd10kt_1x8x14_3view_30deg.fcl"
+  g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
 
   detsim_tpc:
     template: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_template.fcl"
@@ -21,8 +22,8 @@ stages:
 sequence:
   - "gen"
   - "g4"
+  # - "detsim_pds"
   - "detsim_tpc"
-  - "detsim_pds"
   - "tpg"
   - "anatree"
 

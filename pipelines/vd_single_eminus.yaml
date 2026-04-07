@@ -2,7 +2,7 @@
 pipeline_name: "vd_eminus"
 lar_area : '/home/thea/devel/dune-trigger/trigsim_mark05_v10_10_06d00'
 # input_files : 'aaa.root'
-n_ev: 100
+n_events: 100
 skip_events : 0
 first_stage: 4
 keep_last_hist_file: True
