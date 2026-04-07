@@ -24,7 +24,7 @@ physics.producers.generator.SigmaY: [ 670.0 ]      # y = (-6, 6)
 physics.producers.generator.SigmaZ: [ 0.0 ]      # z = (0, 13.9)
 physics.producers.generator.SigmaT: [ 0.0 ]        # In time
 physics.producers.generator.PDist: 0               # Flat momentum dist. (0.1-2.0 GeV)
-physics.producers.generator.P0: [ 10.0 ]
+physics.producers.generator.P0: [ 5.0 ]
 physics.producers.generator.SigmaP: [ 0.0 ]
 physics.producers.generator.AngleDist: 0           # Flat angle dist.
 physics.producers.generator.Theta0XZ: [ 0. ]       # y-azimuth
