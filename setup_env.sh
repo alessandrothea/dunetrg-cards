@@ -7,4 +7,4 @@ export LAR_PIPE_PATH="${HERE}/pipelines${LAR_PIPE_PATH:+:${LAR_PIPE_PATH}}"
 
 unset HERE
 
-echo "--- dunetrg-runcfg setup complete ---"
+echo "--- dunetrg-cards setup complete ---"

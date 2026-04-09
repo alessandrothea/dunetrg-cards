@@ -2,7 +2,7 @@
 
 process_name: SinglesGen
 
-outputs.out1.fileName: "prod_eminus_5-500MeV_xscan_dunefdvd_1x8x_gen.root"
+outputs.out1.fileName: "prod_muminus_tomoz_dunefdvd_1x8x14_gen.root"
 
 services:
 {
