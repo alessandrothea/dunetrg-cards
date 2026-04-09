@@ -17,8 +17,7 @@ physics.filters: {
 
 physics.simulate : [
     "hydrafilter",
-    "rns",
-    "tpcrawdecoder"
+    @sequence::physics.simulate
 ]
 
 # outputs.out1.SelectEvents: [simulate]

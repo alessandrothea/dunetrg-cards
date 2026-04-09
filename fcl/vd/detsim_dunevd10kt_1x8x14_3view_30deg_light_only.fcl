@@ -1,0 +1,7 @@
+#include "standard_detsim_dunevd10kt_1x8x14_3view_30deg.fcl"
+
+
+process_name: "detsimpds"
+physics.simulate: [ @sequence::dunefd_vertdrift_detsim_pds_only ]
+
+services.TimeTracker: @erase
