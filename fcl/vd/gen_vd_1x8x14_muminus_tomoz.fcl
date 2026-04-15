@@ -15,13 +15,13 @@ source.firstRun: 20000011
 
 physics.producers.generator.PDG: [ 13 ]            # mu-
 physics.producers.generator.PosDist: 0             # Flat position dist.
-physics.producers.generator.X0: [ 0.0 ]
-physics.producers.generator.Y0: [ 0.0]
-physics.producers.generator.Z0: [ 0.0 ]
+physics.producers.generator.X0: [ 0.0 ]            # x: (-325, 325)
+physics.producers.generator.Y0: [ 0.0 ]            # y: (-650, 650), 
+physics.producers.generator.Z0: [ 0.0 ]            # z: (0, 2092) --> 6.5m tall x 13.5 m wide x 20 m long 
 physics.producers.generator.T0: [ 0. ]
 physics.producers.generator.SigmaX: [ 325.0 ]      # x = (-3.6, 3.6)
 physics.producers.generator.SigmaY: [ 670.0 ]      # y = (-6, 6)
-physics.producers.generator.SigmaZ: [ 0.0 ]      # z = (0, 13.9)
+physics.producers.generator.SigmaZ: [ 0.0 ]        # z = (0, 13.9)
 physics.producers.generator.SigmaT: [ 0.0 ]        # In time
 physics.producers.generator.PDist: 0               # Flat momentum dist. (0.1-2.0 GeV)
 physics.producers.generator.P0: [ 8.0 ]
