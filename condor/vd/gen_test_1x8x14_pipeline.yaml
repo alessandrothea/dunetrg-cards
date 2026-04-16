@@ -10,6 +10,11 @@
 
 label: 'gentest_1x8x14_pipeline'
 
+# Optional HTCondor settings (defaults shown, uncomment to override):
+# job_flavour: "tomorrow"           # longlunch / tomorrow / workday / testmatch / espresso / microcentury / longlunch / tomorrow / nextweek
+# singularity_image: "/cvmfs/unpacked.cern.ch/registry.hub.docker.com/fermilab/fnal-dev-sl7:latest"
+# request_memory: "3 GB"           # HTCondor memory request (e.g. "512 MB", "4 GB")
+
 pipeline_config: '${HOME}/work/dune/toolbox/dunetrg-cards/pipelines/vd_gen_test_1x8x14.yaml'
 
 setup_script: '${HOME}/work/dune/trigsim_v10_20_03d00/condor_setup.sh'
