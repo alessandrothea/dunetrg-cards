@@ -15,6 +15,13 @@ pipeline_config: '${HOME}/dune/toolbox/dunetrg-cards/pipelines/vd_single_eminus_
 setup_script: '${HOME}/dune/trigsim_v10_20_03d00/condor_setup.sh'
 
 eos_output_folder: '/eos/home-t/thea/dune_trigger/eminus_1x8x14'
+copy_to_eos:
+  - "gen"
+  - "g4"
+  - "detsim_p
+  - "detsim_t
+  - "tpg"
+  - "anatree"
 
 source:
   type: generator
