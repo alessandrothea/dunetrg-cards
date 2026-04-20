@@ -1,0 +1,30 @@
+---
+# piper-condor.py job card — full generation pipeline (generator source)
+# Runs lar-piper.py with vd_single_eminus_1x8x14.yaml as a batch HTCondor job.
+# n_jobs = n_events // n_events_per_job; each job gets a unique run:subrun label.
+#
+# Usage (dry-run):
+#   piper-condor.py run/vd-1x8x14_radbkg_ana5k_pipeline.yaml
+# Usage (submit):
+#   piper-condor.py -s run/vd-1x8x14_radbkg_ana5k_pipeline.yaml
+
+label: 'vd-1x8x14_radbkg_ana5k_pipeline'
+
+pipeline_config: '${HOME}/work/dune/toolbox/dunetrg-cards/pipelines/vd_radiols_1x8x14.yaml'
+setup_script: '${HOME}/work/dune/trigsim_v10_20_03d00/condor_setup.sh'
+
+request_memory: "8 GB"           # HTCondor memory request (e.g. "512 MB", "4 GB")
+eos_output_folder: '/eos/project-d/dunedaq-eos/trigger-studies/condor/1x8x14'
+copy_to_eos:
+  # - "gen"
+  # - "g4"
+  # - "detsim_pds"
+  # - "detsim_tpc"
+  # - "tpg"
+  - "anatree"
+
+source:
+  type: generator
+  n_events: 50000          # total events for the campaign
+  n_events_per_job: 10    # n_jobs = n_events // n_events_per_job = 10
+  run_number: 99009       # ART run number; each job gets subrun = job_index, event = 1

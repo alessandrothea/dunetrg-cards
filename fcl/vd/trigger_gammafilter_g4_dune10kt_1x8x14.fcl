@@ -1,0 +1,15 @@
+# solar_gammafilter_g4_dune10kt_1x8x14.fcl
+# Author: Alessandro Thea (2026) (based on supernova_gammafilter_g4_dune10kt_1x2x6.fcl)
+# Purpose: Run the supernova g4 VD 1x8x14 jobset and reject any events that do not have a gamma in the TPC above a certain energy threshold
+#
+# V1.0
+#
+
+#include "supernova_gammafilter_g4_dune10kt_1x8x14.fcl"
+
+
+# Define the alpha energy filter
+physics.filters.gammafilter.ParticleMinMomentum: [ 3e-3 ] #Require a minimum momentum of gamma particle mass 0 + KE 4 MeV
+
+# Rename the output file
+output.out1.fileName:    "%ifb_g4_gammafilter.root"
