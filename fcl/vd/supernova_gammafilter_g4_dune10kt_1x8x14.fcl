@@ -6,11 +6,15 @@
 #
 
 #include "larg4particlefilter_dune.fcl"
-#include "supernova_g4_dune10kt_1x8x14.fcl"
+#include "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
 
 
 #Define the gamma filter
 physics.filters.gammafilter:  @local::dunefd_gammafilter
+
+# Define the gamma energy filter
+physics.filters.gammafilter.ParticleMinMomentum: [ 4e-3 ] #Require a minimum momentum of gamma particle mass 0 + KE 4 MeV
+
 
 #Run gamma filter at the end
 physics.simulate:  [ @sequence::physics.simulate, gammafilter ]
