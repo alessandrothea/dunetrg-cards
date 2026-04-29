@@ -1,4 +1,4 @@
-pipeline_name: "vd_radiols_1x8x14"
+pipeline_name: "vd_ar39_1x8x14"
 n_events: 5
 skip_events : 0
 first_stage: 0
@@ -7,7 +7,7 @@ keep_last_hist_file: True
 keep_last_art_file: False
 
 stages:
-  gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x14_3view_30deg.fcl"
+  gen : "prodbackground_radiological_decay0_dunevd10kt_1x8x14_3view_30deg_ar39_only.fcl"
   g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
 
   detsim_pds: "detsim_dunevd10kt_1x8x14_3view_30deg_light_only.fcl"

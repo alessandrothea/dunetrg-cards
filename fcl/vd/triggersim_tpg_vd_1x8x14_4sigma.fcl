@@ -1,0 +1,3 @@
+#include "triggersim_tpg_vd_1x8x14.fcl"
+
+physics.producers.tpmakerTPCSimpleThreshold: @local::tpmakerTPC_ADCSimpleThreshold_vd_4sigma
