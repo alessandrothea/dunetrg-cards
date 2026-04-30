@@ -17,15 +17,15 @@ stages:
     delete_intermediate_products: True
     last_step_products: 'move'
 
-  tpg_3s : "triggersim_tpg_vd_1x8x14_3sigma.fcl"
-  tpg : "triggersim_tpg_vd_1x8x14.fcl"
-  anatree_3s : "triggerana_vd_1x8x14_simpleThr.fcl"
+  tpg : "triggersim_tpg_vd_1x8x14_3sigma.fcl"
+  # tpg : "triggersim_tpg_vd_1x8x14.fcl"
+  anatree : "triggerana_vd_1x8x14_simpleThr.fcl"
 
 sequence:
   - "gen"
   - "g4"
   - "detsim_pds"
   - "detsim_tpc"
-  - "tpg_3s"
-  - "anatree_3s"
+  - "tpg"
+  - "anatree"
 
