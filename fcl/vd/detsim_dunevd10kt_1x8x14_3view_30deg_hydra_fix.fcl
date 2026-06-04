@@ -1,0 +1,16 @@
+#include "standard_detsim_dunevd10kt_1x8x14_3view_30deg.fcl"
+
+
+process_name: "detsimtpc"
+
+# physics.simulate: [ @sequence::dunefd_vertdrift_detsim_tpc_only ]
+physics.producers.tpcrawdecoder.wcls_main.outputers: [
+            "wclsDepoFluxWriter:postdrift",
+            "wclsFrameSaver:spsignals"
+            # "wclsFrameSaver:simdigits" # !!!needed for single-sim, single-sim-sp
+        ]
+physics.producers.tpcrawdecoder.wcls_main.params.process_mode: "full-sim-sp"
+
+
+
+# outputs.out1.SelectEvents: [simulate]
