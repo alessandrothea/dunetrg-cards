@@ -1,3 +1,4 @@
+
 ---
 # piper-condor.py job card — full generation pipeline (generator source)
 # Runs lar-piper.py with vd_single_muminus_1x8x14.yaml as a batch HTCondor job.
@@ -8,9 +9,9 @@
 # Usage (submit):
 #   piper-condor.py -s run/muminus_1x8x14_pipeline.yaml
 
-label: 'vd_muminus_1x8x14_pipeline'
+label: 'vd_muminus_tomox_1x8x14_pipeline'
 
-pipeline_config: '${HOME}/work/dune/toolbox/dunetrg-cards/pipelines/vd-1x8x14_single_muminus.yaml'
+pipeline_config: '${HOME}/work/dune/toolbox/dunetrg-cards/pipelines/vd-1x8x14_muminus_tomox.yaml'
 setup_script: '${HOME}/work/dune/trigsim_v10_20_03d00/condor_setup.sh'
 
 eos_output_folder: '/eos/project-d/dunedaq-eos/trigger-studies/condor/1x8x14'
@@ -24,6 +25,6 @@ copy_to_eos:
 
 source:
   type: generator
-  n_events: 10000          # total events for the campaign
+  n_events: 1000           # total events for the campaign
   n_events_per_job: 100    # n_jobs = n_events // n_events_per_job = 10
-  run_number: 31000        # ART run number; each job gets subrun = job_index, event = 1
+  run_number: 35000        # ART run number; each job gets subrun = job_index, event = 1

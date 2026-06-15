@@ -11,11 +11,12 @@ stages:
   g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
 
   detsim_pds: "detsim_dunevd10kt_1x8x14_3view_30deg_light_only.fcl"
-  detsim_tpc:
-    template: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_template.fcl"
-    n_step: 112
-    delete_intermediate_products: True
-    last_step_products: 'move'
+  detsim_tpc: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_full.fcl"
+  # detsim_tpc:
+  #   template: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_single_template.fcl"
+  #   n_step: 112
+  #   delete_intermediate_products: True
+  #   last_step_products: 'move'
 
   tpg : "triggersim_tpg_vd_1x8x14.fcl"
   anatree : "triggerana_vd_1x8x14_simpleThr.fcl"
