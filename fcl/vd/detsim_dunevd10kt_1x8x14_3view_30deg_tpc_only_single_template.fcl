@@ -13,16 +13,16 @@ physics.producers.tpcrawdecoder.wcls_main.outputers: [
 physics.producers.tpcrawdecoder.wcls_main.params.process_mode: "single-sim-sp"
 
 
-# physics.filters: {
-#     hydrafilter:
-#     {
-#       module_type: HydraFilter
-#       tpcset_id: @loop_index@
-#     }
-# }
+physics.filters: {
+    hydrafilter:
+    {
+      module_type: HydraFilter
+      tpcset_id: @loop_index@
+    }
+}
 
 physics.simulate : [
-    # "hydrafilter",
+    "hydrafilter",
     @sequence::physics.simulate
 ]
 
