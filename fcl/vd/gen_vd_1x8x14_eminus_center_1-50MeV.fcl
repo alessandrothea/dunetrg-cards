@@ -1,0 +1,5 @@
+#include "gen_vd_1x8x14_eminus_center.fcl"
+
+
+physics.producers.generator.P0: [ 0.026 ]          # 1-100 MeV
+physics.producers.generator.SigmaP: [ 0.025 ]          
