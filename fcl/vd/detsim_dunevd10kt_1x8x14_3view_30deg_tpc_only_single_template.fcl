@@ -4,13 +4,15 @@
 process_name: "detsim@loop_index@"
 
 physics.simulate: [ @sequence::dunefd_vertdrift_detsim_tpc_only ]
-physics.producers.tpcrawdecoder.wcls_main.structs.process_tpc_index: @loop_index@
-physics.producers.tpcrawdecoder.wcls_main.outputers: [
-            "wclsDepoFluxWriter:postdrift",
-            # "wclsFrameSaver:spsignals",
-            "wclsFrameSaver:simdigits" # !!!needed for single-sim, single-sim-sp
-        ]
-physics.producers.tpcrawdecoder.wcls_main.params.process_mode: "single-sim-sp"
+
+# physics.producers.tpcrawdecoder.wcls_main.structs.process_tpc_index: @loop_index@
+# physics.producers.tpcrawdecoder.wcls_main.outputers: [
+#             "wclsDepoFluxWriter:postdrift",
+#             # "wclsFrameSaver:spsignals",
+#             "wclsFrameSaver:simdigits" # !!!needed for single-sim, single-sim-sp
+#         ]
+# physics.producers.tpcrawdecoder.wcls_main.params.process_mode: "single-sim-sp"
+physics.producers.tpcrawdecoder: @local::dune10kt_dunefd_vertdrift_1x8x14_3view_30deg_sim_nfsp_singledigits
 
 
 physics.filters: {
