@@ -1,0 +1,54 @@
+#include "GenRecoValidator.fcl"
+#include "services_dune.fcl"
+
+process_name: GenRecoValidator
+
+
+services: 
+{
+  TFileService: { fileName: "pandoraAnalysis.root" }
+  # Load the service that manages root files for histograms.
+  TimeTracker:       {}
+  RandomNumberGenerator: {}
+  MemoryTracker:         { } # default is one
+  message: @local::dune_message_services_prod
+  FileCatalogMetadata:
+    @local::art_file_catalog_mc
+    @table::dunefdvd_1x8x14_3view_30deg_simulation_services
+}
+
+source:
+{
+  module_type: RootInput # Telling art we want a root input
+  maxEvents: -1
+}
+
+physics:
+{
+  analyzers:
+  {
+    analysistree: @local::validatorAna
+  }
+  #define the output stream, there could be more than one if using filters 
+  stream1:  [ ]
+
+  ana: [ analysistree ]
+  end_paths: [ stream1, ana ]
+}
+
+outputs:
+{
+    out1:
+    {
+        module_type: RootOutput
+        fileName:    "%ifb_%tc_pandoraAnaMerged.root"
+        dataTier:    "full-reconstructed"
+        compressionLevel: 1
+    }
+}
+
+physics.analyzers.analysistree.SaveIonAndScintInfo: true
+physics.analyzers.analysistree.SaveGenieGenInfo:    true
+physics.analyzers.analysistree.SaveHitsInfo:        true
+physics.analyzers.analysistree.SavePhotonsInfo:     true
+physics.analyzers.analysistree.PhotonsLiteModuleLabel: "PDFastSimAr"
