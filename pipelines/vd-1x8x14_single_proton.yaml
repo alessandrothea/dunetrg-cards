@@ -1,0 +1,23 @@
+pipeline_name: "vd_proton_1x8x14"
+# input_files : 'aaa.root'
+n_events: 1000
+skip_events : 0
+first_stage: 0
+keep_last_hist_file: True
+keep_last_art_file: False
+
+stages:
+  gen : "gen_vd_1x8x14_proton_center.fcl"
+  g4 : "supernova_g4_dunevd10kt_1x8x14_3view_30deg.fcl"
+  detsim_pds: "detsim_dunevd10kt_1x8x14_3view_30deg_light_only.fcl"
+  detsim_tpc: "detsim_dunevd10kt_1x8x14_3view_30deg_tpc_only_full.fcl"
+  tpg : "triggersim_tpg_vd_1x8x14.fcl"
+  anatree : "triggerana_vd_1x8x14_simpleThr.fcl"
+
+sequence:
+  - "gen"
+  - "g4"
+  - "detsim_pds"
+  - "detsim_tpc"
+  - "tpg"
+  - "anatree"
