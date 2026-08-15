@@ -13,19 +13,19 @@ services:
  
 source.firstRun: 20000011
 
-physics.producers.generator.PDG: [ 22 ]            # gamma
+physics.producers.generator.PDG: [ 2112 ]          # neutron
 physics.producers.generator.PosDist: 0             # Flat position dist.
-physics.producers.generator.X0: [ 0 ]              #vary drift, fix the other two coordinates. In VD, drift is fixed to be along x --> x and y are interchanged w.r.t HD 
+physics.producers.generator.X0: [ 0 ]              # x: (-325, 325)
 physics.producers.generator.Y0: [ 85 ]             # x: (-325, 325), y: (-650, 650), z: (0, 2092) -)> 6.5m tall x 13.5 m wide x 9 m long 
 physics.producers.generator.Z0: [ 525 ]            
 physics.producers.generator.T0: [ 1000.0 ]
-physics.producers.generator.SigmaX: [ 325 ]      # x = drift vol. 
-physics.producers.generator.SigmaY: [ 0 ]        # y = fixed 
-physics.producers.generator.SigmaZ: [ 0 ]        # z = fixed
-physics.producers.generator.SigmaT: [ 0 ]        # In time
+physics.producers.generator.SigmaX: [ 325 ]        # x = drift vol. 
+physics.producers.generator.SigmaY: [ 0 ]          # y = fixed 
+physics.producers.generator.SigmaZ: [ 0 ]          # z = fixed
+physics.producers.generator.SigmaT: [ 0 ]          # In time
 physics.producers.generator.PDist: 0               # Flat momentum dist.
-physics.producers.generator.P0: [ 0.051 ]            # 1-100 MeV
-physics.producers.generator.SigmaP: [ 0.050 ]          
+physics.producers.generator.P0: [ 0.244 ]          # Ek 1-10 MeV -> P = 43-445 MeV  P_average = 244 MeV
+physics.producers.generator.SigmaP: [ 0.201 ]       # P_diff = 201 MeV
 physics.producers.generator.AngleDist: 0           # Flat angle dist.
 physics.producers.generator.Theta0XZ: [ 0. ]       # y-azimuth
 physics.producers.generator.Theta0YZ: [ 0. ]       # y-latitude
