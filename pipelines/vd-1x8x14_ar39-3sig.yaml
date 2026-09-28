@@ -1,4 +1,4 @@
-pipeline_name: "vd_ar39_1x8x14"
+pipeline_name: "vd-1x8x14_ar39"
 n_events: 5
 skip_events : 0
 first_stage: 0

@@ -1,4 +1,4 @@
-pipeline_name: "vd_neutron_1x8x14"
+pipeline_name: "vd-1x8x14_neutron"
 # input_files : 'aaa.root'
 n_events: 1000
 skip_events : 0

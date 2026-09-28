@@ -1,5 +1,5 @@
 
-pipeline_name: "vd_muminus_tomox_1x8x14"
+pipeline_name: "vd-1x8x14_muminus_tomox"
 # TODO: add first event parameter
 first_event: 
   run: 1234000

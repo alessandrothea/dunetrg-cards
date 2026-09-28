@@ -1,4 +1,4 @@
-pipeline_name: "vd_eminus_1x8x14"
+pipeline_name: "vd-1x8x14_eminus"
 # input_files : 'aaa.root'
 n_events: 1000
 skip_events : 0
